@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>X position:</b>
+  <%= @light.x_position %>
+</p>
+
+<p>
+  <b>Y position:</b>
+  <%= @light.y_position %>
+</p>
+
+<p>
+  <b>Z position:</b>
+  <%= @light.z_position %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @light.location_id %>
+</p>
+
+<p>
+  <b>Light:</b>
+  <%= @light.light_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @light.name %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @light.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_light_path(@light) %> |
+<%= link_to 'Back', lights_path %>

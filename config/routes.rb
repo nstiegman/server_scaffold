@@ -1,4 +1,14 @@
 ServerScaffold::Application.routes.draw do
+  resources :histories
+
+  resources :devices
+
+  resources :lights
+
+  resources :locations
+
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
