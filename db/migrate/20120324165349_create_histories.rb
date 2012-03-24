@@ -4,7 +4,7 @@ class CreateHistories < ActiveRecord::Migration
       t.integer :light_id
       t.integer :device_id
       t.integer :location_id
-      t.long :time
+      t.timestamp :time
 
       t.timestamps
     end

@@ -7,7 +7,7 @@ class CreateLights < ActiveRecord::Migration
       t.integer :location_id
       t.integer :light_id
       t.string :name
-      t.blob :content
+      t.binary :content
 
       t.timestamps
     end

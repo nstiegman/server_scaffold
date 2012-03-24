@@ -4,7 +4,7 @@ class CreateLocations < ActiveRecord::Migration
       t.integer :location_id
       t.decimal :latitude
       t.decimal :longitude
-      t.blob :map
+      t.binary :map
       t.string :name
       t.string :email
 
