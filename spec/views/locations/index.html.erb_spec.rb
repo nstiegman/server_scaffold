@@ -1,3 +1,4 @@
+=begin
 require 'spec_helper'
 
 describe "locations/index.html.erb" do
@@ -38,3 +39,4 @@ describe "locations/index.html.erb" do
     assert_select "tr>td", :text => "Email".to_s, :count => 2
   end
 end
+=end

@@ -14,7 +14,7 @@
 #
 
 class Location < ActiveRecord::Base
-  attr_accessible :latitude, :longitude, :map, :name, :email
+  attr_accessible :latitude, :longitude, :map, :name
 
   has_many :lights
   has_many :devices

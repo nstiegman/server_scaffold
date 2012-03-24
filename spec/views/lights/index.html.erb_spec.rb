@@ -1,3 +1,4 @@
+=begin
 require 'spec_helper'
 
 describe "lights/index.html.erb" do
@@ -42,3 +43,4 @@ describe "lights/index.html.erb" do
     assert_select "tr>td", :text => "".to_s, :count => 2
   end
 end
+=end

@@ -1,3 +1,4 @@
+=begin
 require 'spec_helper'
 
 describe "histories/index.html.erb" do
@@ -30,3 +31,4 @@ describe "histories/index.html.erb" do
     assert_select "tr>td", :text => "".to_s, :count => 2
   end
 end
+=end
