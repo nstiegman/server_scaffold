@@ -3,6 +3,7 @@ class LightsController < ApplicationController
   # GET /lights.xml
   def index
     @lights = Light.all
+    @title = "Lights"
 
     respond_to do |format|
       format.html # index.html.erb

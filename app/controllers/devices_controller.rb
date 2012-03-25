@@ -3,6 +3,7 @@ class DevicesController < ApplicationController
   # GET /devices.xml
   def index
     @devices = Device.all
+    @title = "Devices"
 
     respond_to do |format|
       format.html # index.html.erb

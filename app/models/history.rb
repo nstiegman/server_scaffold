@@ -16,10 +16,10 @@ class History < ActiveRecord::Base
   belongs_to :light
   belongs_to :device
 
-  validates :device_id, :presence => true
+#  validates :device_id, :presence => true
 
-  validates :location_id, :presence => true
+#  validates :location_id, :presence => true
 
-  validates :time, :presence => true
+#  validates :time, :presence => true
 
 end

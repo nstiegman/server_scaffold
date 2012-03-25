@@ -20,6 +20,6 @@ class Device < ActiveRecord::Base
 
   validates :device_id, :presence => true
 
-  validates :location, :presence => true
+#  validates :location, :presence => true
 
 end

@@ -1,8 +1,4 @@
 ServerScaffold::Application.routes.draw do
-  get "pages/home"
-
-  get "pages/about"
-
   resources :histories
 
   resources :devices

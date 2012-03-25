@@ -3,6 +3,7 @@ class HistoriesController < ApplicationController
   # GET /histories.xml
   def index
     @histories = History.all
+    @title = "History"
 
     respond_to do |format|
       format.html # index.html.erb
