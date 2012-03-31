@@ -1,0 +1,78 @@
+<head>
+    <title>Senior Lab</title>
+      <script language="JavaScript1.2" src="/main.js" type="text/javascript"></script> 
+      <script type="text/javascript" src="/jquery.js"></script>
+      <script type="text/javascript" src="/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="/prototype.js"></script>
+      <link rel="stylesheet" type="text/css" href="/speechbubbles.css" />
+      <script src="/speechbubbles.js">
+
+/***********************************************
+* Speech Bubbles Tooltip- (c) Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+
+</script>
+<script type="text/javascript">function updatelights(){ 
+  // Alert the position with jQuery
+  var offset = jQuery("#icon").offset();
+     document.getElementById("light_x_position").value = offset.top;
+     document.getElementById("light_y_position").value = offset.left;
+     
+
+}; </script>
+
+
+<script type="text/javascript">
+
+jQuery(function(jQuery){ //on document.ready
+ 	//Apply tooltip to links with class="addspeech", plus look inside 'speechdata.txt' for the tooltip markups
+	jQuery('#icon').speechbubble();
+})
+
+</script>
+      <script type="text/javascript">
+      
+
+jQuery( init );
+
+function init() {
+  jQuery('#icon').draggable();
+}
+
+jQuery.noConflict();
+
+</script>
+  </head>
+  <body >
+
+
+
+<div style="position:absolute; top: 0px; left: 0px; z-index:2;"><img src="/lab.bmp" alt="Senior Lab"/></div>
+
+
+
+
+
+<div id = "home" class = "container" style="position:absolute; top: 0px; left: 0px; z-index:3">
+<div id = "icon"  title="Location: <%= @light.location_id %> </br> X position: <%= @light.x_position %> </br> Y position: <%= @light.y_position %> </br> ID code: <%= @light.id_code %> </br> Content: <%= @light.content %>  " style="position:absolute; top: <%= @light.x_position %>px; left: <%= @light.y_position %>px; z-index:4" onmouseover="updatelights()"><img src="/light.png" alt="Senior Lab"/></div>
+
+
+
+
+
+
+
+<div id="TipLayer" style="visibility:hidden;position:absolute;z-index:1000;top:-100;"></div>
+
+<script type="text/javascript">
+
+</script>
+
+
+<script language="JavaScript1.2" src="style.js" type="text/javascript"></script>  
+ <script type="text/javascript"></script>
+
+<div style="position:absolute; top:0px; left:520px"> <%= render 'dragdropform' %> </div>
+</body>

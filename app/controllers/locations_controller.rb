@@ -8,6 +8,7 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @locations }
+      format.json  { render :json => @locations }
     end
   end
 
@@ -15,6 +16,7 @@ class LocationsController < ApplicationController
   # GET /locations/1.xml
   def show
     @location = Location.find(params[:id])
+    @lights = @location.lights.all
 
     respond_to do |format|
       format.html # show.html.erb

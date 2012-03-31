@@ -2,10 +2,15 @@ ServerScaffold::Application.routes.draw do
   resources :histories
 
   resources :devices
-
-  resources :lights
-
-  resources :locations
+  
+  resources :locations do
+    resources :lights do
+      match '/lights/:id/dragdrop', :action => 'dragdrop', :controller => 'lights' 
+      member do
+        get :dragdrop
+      end
+    end
+  end
 
   resources :users
 

@@ -1,3 +1,49 @@
+<% content_for :head do %>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100% }
+    </style>
+    
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDNsmG-CODbm8HLec1SOZBwGCb9HpRmExU&sensor=false">
+    </script>
+    
+  
+    <script type="text/javascript">
+       var arrMarkers = [];
+       var arrInfoWindows = [];
+
+      function initialize() {
+        var myOptions = {
+          center: new google.maps.LatLng(42.350112,-71.106171),
+          zoom: 17,
+          mapTypeId: google.maps.MapTypeId.ROADMAP };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+      
+      $.noConflict();
+
+      jQuery.getJSON("http://0.0.0.0:3000/locations.json", {}, function(json){
+
+ jQuery.each(json, function(i,item){jQuery("#markers").append('<li><a href="#" rel="' + i + '">' + item.location.name + '</a></li>');
+
+
+
+              var marker = new google.maps.Marker({position: new google.maps.LatLng(item.location.latitude,item.location.longitude),map: map,title: item.location.name});
+
+                arrMarkers[i] = marker;
+
+});
+});
+
+
+}
+
+
+    </script>
+<% end %>
+
 <h1>Listing locations</h1>
 
 <table>
@@ -31,3 +77,15 @@
 <br />
 
 <%= link_to 'New Location', new_location_path %>
+
+
+<% content_for :map do %>
+
+<section class="round">
+
+<div id="map_canvas" style="width:670px; height:400px"></div>
+
+</section>
+
+<% end %>
+

@@ -1,0 +1,14 @@
+files
+
+2 jquery javascript files
+light image
+speechbubbles in public
+nested resources in routes file
+lights controller merge
+location controller merge
+
+application layout
+link in header layout
+location view index
+
+added table file to db folder
