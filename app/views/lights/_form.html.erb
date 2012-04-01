@@ -1,4 +1,4 @@
-<%= form_for(@light) do |f| %>
+<%= form_for([@location, @light]) do |f| %>
   <% if @light.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@light.errors.count, "error") %> prohibited this light from being saved:</h2>

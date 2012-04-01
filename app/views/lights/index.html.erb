@@ -1,3 +1,7 @@
+<% content_for :head do %>
+<script type="text/javascript">jQuery.noConflict();  </script>
+<% end %>
+
 <h1>Listing lights</h1>
 
 <table>
@@ -23,13 +27,16 @@
     <td><%= light.light_id %></td>
     <td><%= light.name %></td>
     <td><%= light.content %></td>
-    <td><%= link_to 'Show', light %></td>
-    <td><%= link_to 'Edit', edit_light_path(light) %></td>
-    <td><%= link_to 'Destroy', light, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', [@location, light] %></td>
+    <td><%= link_to 'Edit', edit_location_light_path(@location, light) %></td>
+    <td><%= link_to 'Destroy', [@location, light], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
+<%= link_to 'New Light', new_location_light_path(@location) %>
+<br>
+<%= link_to 'Locations list', locations_path %>
+<br><%= link_to "Indoor Map", indoor_path %>
 
-<%= link_to 'New Light', new_light_path %>

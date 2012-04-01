@@ -24,6 +24,7 @@ class LightsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @light }
+      format.json  { render :json => @lights }
     end
   end
   
@@ -35,6 +36,7 @@ class LightsController < ApplicationController
     respond_to do |format|
       format.html # dragdrop.html.erb
       format.xml  { render :xml => @light }
+      format.json  { render :json => @lights }
     end  
   end
 
@@ -48,6 +50,7 @@ class LightsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @light }
+      format.json  { render :json => @lights }
     end
   end
 
@@ -72,6 +75,7 @@ class LightsController < ApplicationController
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @light.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @lights }
       end
     end
   end

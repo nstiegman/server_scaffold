@@ -12,3 +12,6 @@ link in header layout
 location view index
 
 added table file to db folder
+
+light view index
+

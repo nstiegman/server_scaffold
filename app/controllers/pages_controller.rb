@@ -6,5 +6,9 @@ class PagesController < ApplicationController
   def about
     @title = "About"
   end
+  
+  def indoor
+    @title = "Indoor Map"
+  end
 
 end
