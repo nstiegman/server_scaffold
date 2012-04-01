@@ -24,7 +24,7 @@
       
       $.noConflict();
 
-      jQuery.getJSON("http://0.0.0.0:3000/locations.json", {}, function(json){
+      jQuery.getJSON("locations.json", {}, function(json){
 
  jQuery.each(json, function(i,item){jQuery("#markers").append('<li><a href="#" rel="' + i + '">' + item.location.name + '</a></li>');
 
