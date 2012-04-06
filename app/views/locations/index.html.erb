@@ -54,6 +54,7 @@
     <th>Map</th>
     <th>Name</th>
     <th>Email</th>
+    <th>Created</th>
     <th></th>
     <th></th>
     <th></th>
@@ -68,6 +69,7 @@
     <td><%= location.map %></td>
     <td><%= location.name %></td>
     <td><%= location.email %></td>
+    <td><%= location.created_at %></td>
     <td><%= link_to 'Show', location %></td>
     <td><%= link_to 'Lights', location_lights_path(location) %></td>
     <td><%= link_to 'Edit', edit_location_path(location) %></td>
