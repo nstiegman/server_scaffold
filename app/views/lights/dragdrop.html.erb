@@ -16,25 +16,13 @@
 </script>
 <script type="text/javascript">function updatelights(){ 
   // Alert the position with jQuery
-  var offset = jQuery("#icon").offset();
-     document.getElementById("light_x_position").value = offset.top;
-     document.getElementById("light_y_position").value = offset.left;
-     document.getElementById("icon").title = "";
-     
-
+  var position = jQuery("#icon").position();
+  document.getElementById("light_x_position").value = position.left;
+  document.getElementById("light_y_position").value = position.top;
+  document.getElementById("icon").title = "Location: <%= @light.location_id %> </br> X position: "+position.left+" </br> Y position: "+position.top+" </br> ID code: <%= @light.light_id %> </br> Content: <%= @light.content %>  ";
 }; </script>
 
-
 <script type="text/javascript">
-
-jQuery(function(jQuery){ //on document.ready
- 	//Apply tooltip to links with class="addspeech", plus look inside 'speechdata.txt' for the tooltip markups
-	jQuery('#icon').speechbubble();
-})
-
-</script>
-      <script type="text/javascript">
-      
 
 jQuery( init );
 
@@ -47,31 +35,11 @@ jQuery.noConflict();
 </script>
 <% end %>
   
-  
-<img src="/images/lab.bmp" alt="Senior Lab"/>
-
+<div id = "home" style="position:relative; z-index:2;"><img src="/images/lab.bmp" alt="Senior Lab"/>
 <%= render 'dragdropform' %>
-
-<div id = "home" class = "container" style="position:absolute; top: 0px; left: 0px; z-index:3">
-
-<div id = "icon"  title="Name: <%= @light.name %> </br> Location: <%= @light.location_id %> </br> X position: <%= @light.x_position %> </br> Y position: <%= @light.y_position %> </br> Z position: <%= @light.z_position %> </br> ID code: <%= @light.light_id %> </br> Content: <%= @light.content %>  " style="position:absolute; top: <%= @light.x_position %>px; left: <%= @light.y_position %>px; z-index:4" onmouseover="updatelights()">
-
-<img src="/images/light.png" alt="Senior Lab"/>
+<div id = "icon"   style="position:absolute; top: <%= @light.y_position %>px; left: <%= @light.x_position %>px; z-index:4" onmouseover="updatelights()"><img src="/images/light.png" alt="Senior Lab"/></div>
 
 </div>
 
-
-
-
-
-
-
-<div id="TipLayer" style="visibility:hidden;position:absolute;z-index:1000;top:-100;"></div>
-
-<script type="text/javascript">
-
-</script>
-
-
-<script language="JavaScript1.2" src="/style.js" type="text/javascript"></script>  
-<script type="text/javascript"></script>
+<div id="TipLayer" style="visibility:hidden;position:absolute;z-index:1000;top:-100;"></div> 
+ <script type="text/javascript"></script> 
