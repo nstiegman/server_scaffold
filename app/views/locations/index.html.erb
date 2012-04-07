@@ -46,6 +46,13 @@
 
 <h1>Listing locations</h1>
 
+<% form_tag locations_path, :method => 'get' do %>
+<p>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" , :name => nil%>
+</p>
+<% end %>
+
 <table>
   <tr>
     <th>Location</th>

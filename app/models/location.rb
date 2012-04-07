@@ -37,4 +37,12 @@ class Location < ActiveRecord::Base
 #                    :format   => { :with => email_regex },
 #                    :uniqueness => { :case_sensitive => false }
 
+  def self.search(search)
+
+    if search 
+      find(:all, :conditions => ['name LIKE?', "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
 end
