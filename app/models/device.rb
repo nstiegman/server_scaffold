@@ -11,7 +11,7 @@
 #
 
 class Device < ActiveRecord::Base
-  attr_accessible :device_id
+  attr_accessible :device_id, :location_id, :light_id
 
   has_many :histories
 
