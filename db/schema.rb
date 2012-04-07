@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324181430) do
+ActiveRecord::Schema.define(:version => 20120407163919) do
 
   create_table "devices", :force => true do |t|
     t.string   "device_id"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20120324181430) do
     t.integer  "location_id"
     t.decimal  "latitude"
     t.decimal  "longitude"
-    t.binary   "map"
+    t.string   "map"
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"

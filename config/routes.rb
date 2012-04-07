@@ -4,6 +4,10 @@ ServerScaffold::Application.routes.draw do
   resources :devices
   
   resources :locations do
+      match '/locations/:id/indoor', :action => 'indoor', :controller => 'locations' 
+      member do
+        get :indoor
+      end
     resources :lights do
       match '/lights/:id/dragdrop', :action => 'dragdrop', :controller => 'lights' 
       member do
@@ -20,7 +24,7 @@ ServerScaffold::Application.routes.draw do
 
   match '/signup',  :to => 'users#new'
   
-  match '/indoor',  :to => 'pages#indoor'
+  #match '/indoor',  :to => 'pages#indoor'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -11,6 +11,19 @@ class LocationsController < ApplicationController
       format.json  { render :json => @locations }
     end
   end
+  
+  # GET /locations/1/indoor
+  # GET /locations/1/indoor.xml
+  def indoor
+    @location = Location.find(params[:id])
+    @lights = @location.lights.all
+    
+    respond_to do |format|
+      format.html # indoor.html.erb
+      format.xml  { render :xml => @lights }
+      format.json  { render :json => @lights }
+    end  
+  end
 
   # GET /locations/1
   # GET /locations/1.xml
@@ -21,9 +34,10 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @location }
+      format.json  { render :json => @location }
     end
   end
-
+  
   # GET /locations/new
   # GET /locations/new.xml
   def new
@@ -44,7 +58,7 @@ class LocationsController < ApplicationController
   # POST /locations.xml
   def create
     @location = Location.new(params[:location])
-
+    
     respond_to do |format|
       if @location.save
         format.html { redirect_to(@location, :notice => 'Location was successfully created.') }

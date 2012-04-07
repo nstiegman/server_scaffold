@@ -18,7 +18,7 @@ class Device < ActiveRecord::Base
   belongs_to :light
   belongs_to :location
 
-  validates :device_id, :presence => true
+#  validates :device_id, :presence => true
 
 #  validates :location, :presence => true
 

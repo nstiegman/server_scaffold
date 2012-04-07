@@ -64,10 +64,10 @@
 <% @locations.each do |location| %>
   <tr>
     <td><%= location.location_id %></td>
+    <td><%= location.name %></td>
     <td><%= location.latitude %></td>
     <td><%= location.longitude %></td>
     <td><%= location.map %></td>
-    <td><%= location.name %></td>
     <td><%= location.email %></td>
     <td><%= location.created_at %></td>
     <td><%= link_to 'Show', location %></td>

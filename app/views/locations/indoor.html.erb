@@ -1,0 +1,64 @@
+<% content_for :head do %>
+ 
+  <script src="/javascripts/prototype.js?1331930482" type="text/javascript"></script>
+<script src="/javascripts/effects.js?1331930482" type="text/javascript"></script>
+<script src="/javascripts/dragdrop.js?1331930482" type="text/javascript"></script>
+<script src="/javascripts/controls.js?1331930482" type="text/javascript"></script>
+<script src="/javascripts/rails.js?1331930482" type="text/javascript"></script>
+<script src="/javascripts/application.js?1331930482" type="text/javascript"></script>
+<script src="/javascripts/jquery.js?1332185405" type="text/javascript"></script>
+<script src="/javascripts/jquery.rails.js?1332192435" type="text/javascript"></script>
+      <script language="JavaScript1.2" src="/main.js" type="text/javascript"></script> 
+      <script type="text/javascript" src="/jquery.js"></script>
+      <script type="text/javascript" src="/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="/prototype.js"></script>
+      <link rel="stylesheet" type="text/css" href="/speechbubbles.css" />
+      <script src="/speechbubbles.js">
+
+/***********************************************
+* Speech Bubbles Tooltip- (c) Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+      
+jQuery.noConflict();
+
+</script>
+<% end %>
+
+
+
+
+<div id = "home" style="position:relative; z-index:2;"><img src="<%= @location.map %>" alt="Senior Lab"/>
+</div>
+
+
+<script type="text/javascript">
+
+
+
+
+jQuery.getJSON("/locations/<%= @location.id %>/lights.json", {}, function(json){
+
+  jQuery.each(json, function(i, item){
+  
+    jQuery('#home').append('<div id="icon'+i+'" title="Name: '+item.light.name+' </br> Location: '+item.light.location_id+' </br> X position: '+item.light.x_position+' </br> Y position: '+item.light.y_position+' </br> ID code: '+item.light.light_id+' </br> Content: '+item.light.content+'  " style="position:absolute; top: '+ item.light.y_position +'px; left: '+ item.light.x_position +'px; z-index:4"><img src="/images/light.png"></ div>' );
+
+    jQuery(function(jQuery){ //on document.ready
+    
+ 	  //Apply tooltip to links with class="addspeech", plus look inside 'speechdata.txt' for the tooltip markups
+ 	    
+	  jQuery('#icon'+i+'').speechbubble();
+	  
+    })
+    
+
+    
+  });
+});
+
+</script>
