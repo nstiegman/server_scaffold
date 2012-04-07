@@ -42,7 +42,9 @@ class DevicesController < ApplicationController
   # POST /devices.xml
   def create
     @device = Device.new(params[:device])
-    
+    @history = History.new(:light_id => @device.light_id, :device_id => @device.device_id, :location_id => @device.location_id)
+    @history.save
+        
     respond_to do |format|
       if @device.save
         format.html { redirect_to(@device, :notice => 'Device was successfully created.') }
@@ -59,6 +61,7 @@ class DevicesController < ApplicationController
   def update
     @device = Device.find(params[:id])
 
+
     respond_to do |format|
       if @device.update_attributes(params[:device])
         format.html { redirect_to(@device, :notice => 'Device was successfully updated.') }
@@ -68,6 +71,8 @@ class DevicesController < ApplicationController
         format.xml  { render :xml => @device.errors, :status => :unprocessable_entity }
       end
     end
+    @history = History.new(:light_id => @device.light_id, :device_id => @device.device_id, :location_id => @device.location_id)
+    @history.save
   end
 
   # DELETE /devices/1

@@ -12,7 +12,6 @@
 #
 
 class History < ActiveRecord::Base
-  attr_accessible
 
   belongs_to :location
   belongs_to :light

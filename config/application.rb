@@ -40,3 +40,5 @@ module ServerScaffold
     config.filter_parameters += [:password]
   end
 end
+
+config.action_controller.allow_forgery_protection = false
