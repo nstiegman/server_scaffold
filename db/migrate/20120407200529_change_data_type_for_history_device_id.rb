@@ -1,12 +1,12 @@
 class ChangeDataTypeForHistoryDeviceId < ActiveRecord::Migration
   def self.up
-    change_table :history do |t|
+    change_table :histories do |t|
       t.change :device_id, :string
     end
   end
 
   def self.down
-    change_table :locations do |t|
+    change_table :histories do |t|
       t.change :device_id, :integer
     end
   end

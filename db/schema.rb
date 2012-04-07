@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120407163919) do
+ActiveRecord::Schema.define(:version => 20120407200529) do
 
   create_table "devices", :force => true do |t|
     t.string   "device_id"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20120407163919) do
 
   create_table "histories", :force => true do |t|
     t.integer  "light_id"
-    t.integer  "device_id"
+    t.string   "device_id"
     t.integer  "location_id"
     t.datetime "time"
     t.datetime "created_at"
