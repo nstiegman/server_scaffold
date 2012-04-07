@@ -41,12 +41,31 @@ class DevicesController < ApplicationController
   # POST /devices
   # POST /devices.xml
   def create
+    #Device.destroy_all(:device_id => params[:device_id])
+    #deletable_words = [ 'php', 'c++' ]
+    #objs = Device.find(:all, :conditions => [ "Devices.device_id IN (?)",  deletable_words])
+    #objs.each { |o| o.destroy }
     @device = Device.new(params[:device])
     @history = History.new(:light_id => @device.light_id, :device_id => @device.device_id, :location_id => @device.location_id)
     @history.save
-        
+    
+        Device.destroy_all(:device_id => @device.device_id)
+
+    
     respond_to do |format|
       if @device.save
+        # Fetch your latest record
+        #newest_device = Device.find(:all, :conditions => { :device_id => @device.device_id }, :order => 'created_at DESC', :limit => 1)
+        # 
+        #objs = Device.find(:all, :conditions => ['device_id = ? and "devices.id NOT IN (?)"', @device.device_id, newest_device.collect(&:device_id)])
+        
+        #objs.each { |o| o.destroy }
+
+
+
+        # Delete all but newest
+        #Device.destroy_all(:device_id => @device.device_id, ['id NOT IN (?)', newest_record.collect(&:id)])
+        
         format.html { redirect_to(@device, :notice => 'Device was successfully created.') }
         format.xml  { render :xml => @device, :status => :created, :location => @device }
       else
@@ -71,8 +90,6 @@ class DevicesController < ApplicationController
         format.xml  { render :xml => @device.errors, :status => :unprocessable_entity }
       end
     end
-    @history = History.new(:light_id => @device.light_id, :device_id => @device.device_id, :location_id => @device.location_id)
-    @history.save
   end
 
   # DELETE /devices/1

@@ -44,7 +44,7 @@
     </script>
 <% end %>
 
-<h1>Listing locations</h1>
+<h1>Locations</h1>
 
 <% form_tag locations_path, :method => 'get' do %>
 <p>
@@ -55,13 +55,10 @@
 
 <table>
   <tr>
-    <th>Location</th>
+    <th>Name</th>
     <th>Latitude</th>
     <th>Longitude</th>
     <th>Map</th>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Created</th>
     <th></th>
     <th></th>
     <th></th>
@@ -70,13 +67,10 @@
 
 <% @locations.each do |location| %>
   <tr>
-    <td><%= location.location_id %></td>
     <td><%= location.name %></td>
     <td><%= location.latitude %></td>
     <td><%= location.longitude %></td>
-    <td><%= location.map %></td>
-    <td><%= location.email %></td>
-    <td><%= location.created_at %></td>
+    <td><%= link_to location.map, indoor_location_path(location)  %></td>
     <td><%= link_to 'Show', location %></td>
     <td><%= link_to 'Lights', location_lights_path(location) %></td>
     <td><%= link_to 'Edit', edit_location_path(location) %></td>
