@@ -6,12 +6,11 @@
 
 <table>
   <tr>
+    <th>Name</th>
+    <th>Light</th>
     <th>X position</th>
     <th>Y position</th>
     <th>Z position</th>
-    <th>Location</th>
-    <th>Light</th>
-    <th>Name</th>
     <th>Content</th>
     <th></th>
     <th></th>
@@ -20,12 +19,11 @@
 
 <% @lights.each do |light| %>
   <tr>
+    <td><%= light.name %></td>
+    <td><%= light.light_id %></td>
     <td><%= light.x_position %></td>
     <td><%= light.y_position %></td>
     <td><%= light.z_position %></td>
-    <td><%= light.location_id %></td>
-    <td><%= light.light_id %></td>
-    <td><%= light.name %></td>
     <td><%= light.content %></td>
     <td><%= link_to 'Show', [@location, light] %></td>
     <td><%= link_to 'Edit', edit_location_light_path(@location, light) %></td>
