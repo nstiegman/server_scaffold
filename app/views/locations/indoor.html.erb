@@ -33,7 +33,7 @@
 
 
 
-<div id = "home" style="position:relative; z-index:2;"><img src="<%= @location.map %>" alt="Senior Lab"/>
+<div id = "home" style="position:relative; z-index:0;"><img src="<%= @location.map %>" alt="Senior Lab"/>
 </div>
 
 
@@ -46,7 +46,7 @@ jQuery.getJSON("/locations/<%= @location.id %>/lights.json", {}, function(json){
 
   jQuery.each(json, function(i, item){
   
-    jQuery('#home').append('<div id="icon'+i+'" title="Name: '+item.light.name+' </br> Location: '+item.light.location_id+' </br> X position: '+item.light.x_position+' </br> Y position: '+item.light.y_position+' </br> ID code: '+item.light.light_id+' </br> Content: '+item.light.content+'  " style="position:absolute; top: '+ item.light.y_position +'px; left: '+ item.light.x_position +'px; z-index:4"><img src="/images/light.png"></ div>' );
+    jQuery('#home').append('<div id="icon'+i+'" title="Name: '+item.light.name+' </br> Location: '+item.light.location_id+' </br> X position: '+item.light.x_position+' </br> Y position: '+item.light.y_position+' </br> Z position: '+item.light.z_position+' </br> ID code: '+item.light.light_id+' </br> Content: '+item.light.content+'  " style="position:absolute; top: '+ item.light.y_position +'px; left: '+ item.light.x_position +'px; z-index: '+ item.light.z_position +'"><img src="/images/light.png"></ div>' );
 
     jQuery(function(jQuery){ //on document.ready
     

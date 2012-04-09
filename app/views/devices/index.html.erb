@@ -1,4 +1,4 @@
-<h1>Listing devices</h1>
+<h1>Current devices</h1>
 
 <table>
   <tr>
@@ -16,7 +16,6 @@
     <td><%= device.location_id %></td>
     <td><%= device.light_id %></td>
     <td><%= link_to 'Show', device %></td>
-    <td><%= link_to 'Edit', edit_device_path(device) %></td>
     <td><%= link_to 'Destroy', device, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

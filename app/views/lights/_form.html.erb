@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
     <%= f.label :x_position %><br />
     <%= f.text_field :x_position %>
   </div>
@@ -25,15 +29,11 @@
   </div>
   <div class="field">
     <%= f.label :location_id %><br />
-    <%= f.text_field :location_id %>
+    <%= f.text_field :location_id,:readonly => true %>
   </div>
   <div class="field">
-    <%= f.label :light_id %><br />
+    <%= f.label :"Frequency" %><br />
     <%= f.text_field :light_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :content %><br />

@@ -24,7 +24,7 @@ jQuery(function(jQuery){ //on document.ready
   var position = jQuery("#icon").position();
   document.getElementById("light_x_position").value = position.left;
   document.getElementById("light_y_position").value = position.top;
-  document.getElementById("icon").title = "Location: <%= @light.location_id %> </br> X position: "+position.left+" </br> Y position: "+position.top+" </br> ID code: <%= @light.light_id %> </br> Content: <%= @light.content %>  ";
+  document.getElementById("icon").title = "Location: <%= @light.location_id %> </br> X position: "+position.left+" </br> Y position: "+position.top+" </br> Z position: <%= @light.z_position %> </br> ID code: <%= @light.light_id %> </br> Content: <%= @light.content %>  ";
 }; </script>
 
 <script type="text/javascript">
@@ -39,8 +39,8 @@ function init() {
 
 </script>
 <% end %>
-<div id = "home" style="position:relative; z-index:2;" onmouseover="updatelights()"><img src="/images/lab.bmp" alt="Senior Lab"/>
+<div id = "home" style="position:relative; z-index:0;" onmouseover="updatelights()"><img src="/images/lab.bmp" alt="Senior Lab"/>
 <%= render 'dragdropform' %>
-<div id = "icon"   style="position:absolute; top: <%= @light.y_position %>px; left: <%= @light.x_position %>px; z-index:4" onmouseover="updatelights()"><img src="/images/light.png" alt="Senior Lab"/></div>
+<div id = "icon"   style="position:absolute; top: <%= @light.y_position %>px; left: <%= @light.x_position %>px; z-index:<%= @light.z_position %>" onmouseover="updatelights()"><img src="/images/light.png" alt="Senior Lab"/></div>
 
 </div>

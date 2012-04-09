@@ -2,12 +2,12 @@
 <script type="text/javascript">jQuery.noConflict();  </script>
 <% end %>
 
-<h1>Listing lights</h1>
+<h1>Lights for <%= @location.name %></h1>
 
 <table>
   <tr>
     <th>Name</th>
-    <th>Light</th>
+    <th>Frequency</th>
     <th>X position</th>
     <th>Y position</th>
     <th>Z position</th>
@@ -24,7 +24,7 @@
     <td><%= light.x_position %></td>
     <td><%= light.y_position %></td>
     <td><%= light.z_position %></td>
-    <td><%= light.content %></td>
+    <td><%= link_to light.content , light.content%></td>
     <td><%= link_to 'Show', [@location, light] %></td>
     <td><%= link_to 'Edit', edit_location_light_path(@location, light) %></td>
     <td><%= link_to 'Destroy', [@location, light], :confirm => 'Are you sure?', :method => :delete %></td>
