@@ -4,10 +4,11 @@
 
 <h1>Lights for <%= @location.name %></h1>
 
+
 <table>
   <tr>
-    <th>Name  </th>
-    <th>Frequency</th>
+    <th><%= sortable "name" %></th>
+    <th><%= sortable "light_id", "Frequency" %></th>
     <th>X</th>
     <th>Y</th>
     <th>Z</th>

@@ -1,8 +1,13 @@
 class HistoriesController < ApplicationController
+
+  helper_method :sort_column, :sort_direction
+  
   # GET /histories
   # GET /histories.xml
   def index
-    @histories = History.all
+    
+    #@histories = History.all
+    @histories = History.order(sort_column + " " + sort_direction)
     @title = "History"
 
     respond_to do |format|
@@ -80,5 +85,15 @@ class HistoriesController < ApplicationController
       format.html { redirect_to(histories_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  
+  def sort_column
+    History.column_names.include?(params[:sort]) ? params[:sort] : "id"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

@@ -1,8 +1,12 @@
 class DevicesController < ApplicationController
+
+  helper_method :sort_column, :sort_direction
+  
   # GET /devices
   # GET /devices.xml
   def index
-    @devices = Device.all
+    #@devices = Device.all
+    @devices = Device.order(sort_column + " " + sort_direction)
     @title = "Devices"
 
     respond_to do |format|
@@ -103,4 +107,15 @@ class DevicesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  
+  def sort_column
+    Device.column_names.include?(params[:sort]) ? params[:sort] : "id"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+  
 end
