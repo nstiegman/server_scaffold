@@ -5,8 +5,8 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.xml
   def index
-    #@locations = Location.search(params[:search])
-    @locations = Location.order(sort_column + " " + sort_direction)
+    @locations = Location.search(params[:search])
+    #@locations = Location.order(sort_column + " " + sort_direction)
     @title = "Locations"
 
     respond_to do |format|

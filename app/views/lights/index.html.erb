@@ -9,9 +9,9 @@
   <tr>
     <th>Name</th>
     <th>Light ID</th>
-    <th>X</th>
-    <th>Y</th>
-    <th>Z</th>
+    <th>X (m)</th>
+    <th>Y (m)</th>
+    <th>Z (m)</th>
     <th>Content</th>
     <th></th>
     <th></th>
@@ -22,9 +22,9 @@
   <tr>
     <td><%= light.name %></td>
     <td><%= light.light_id %></td>
-    <td><%= light.x_position %></td>
-    <td><%= light.y_position %></td>
-    <td><%= light.z_position %></td>
+    <td><script type="text/javascript">document.write(PXtoM(<%= light.x_position %>));</script></td>
+    <td><script type="text/javascript">document.write(PXtoM(<%= light.y_position %>));</script></td>
+    <td><script type="text/javascript">document.write(PXtoM(<%= light.z_position %>));</script></td>
     <td><%= link_to light.content , light.content%></td>
     <td><%= link_to 'Show', [@location, light] %></td>
     <td><%= link_to 'Edit', edit_location_light_path(@location, light) %></td>
