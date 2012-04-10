@@ -40,7 +40,7 @@ class Location < ActiveRecord::Base
   def self.search(search)
 
     if search 
-      find(:all, :conditions => ['name LIKE?', "%#{search.downcase}%"])
+      find(:all, :conditions => ['name ILIKE?', "%#{search.downcase}%"])
     else
       find(:all)
     end
