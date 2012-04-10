@@ -14,7 +14,7 @@
 ***********************************************/
 
 </script>
-<script type="text/javascript">function updatelights(){ 
+<script type="text/javascript">function initialize(){ 
 jQuery(function(jQuery){ //on document.ready
  	//Apply tooltip to links with class="addspeech", plus look inside 'speechdata.txt' for the tooltip markups
 	jQuery('#icon').speechbubble();
@@ -39,8 +39,8 @@ function init() {
 
 </script>
 <% end %>
-<div id = "home" style="position:relative; z-index:0;" onmouseover="updatelights()"><img src="/images/lab.bmp" alt="Senior Lab"/>
+<div id = "home" style="position:relative; z-index:0;" onmouseover="initialize()"><img src="/images/lab.bmp" alt="Senior Lab"/>
 <%= render 'dragdropform' %>
-<div id = "icon"   style="position:absolute; top: <%= @light.y_position %>px; left: <%= @light.x_position %>px; z-index:<%= @light.z_position %>" onmouseover="updatelights()"><img src="/images/light.png" alt="Senior Lab"/></div>
+<div id = "icon"   style="position:absolute; top: <%= @light.y_position %>px; left: <%= @light.x_position %>px; z-index:<%= @light.z_position %>" onmouseover="initialize()"><img src="/images/light.png" alt="Senior Lab"/></div>
 
 </div>

@@ -8,8 +8,8 @@ class LightsController < ApplicationController
     # @lights = Light.all
     @title = "Lights"
     @location = Location.find(params[:location_id])
-    @lights = @location.lights.all
-    #@lights = Light.order(sort_column + " " + sort_direction)
+    #@lights = @location.lights.all
+    @lights = @location.lights.order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -115,15 +115,15 @@ class LightsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-#  
-#  private
-#  
-#  def sort_column
-#    Light.column_names.include?(params[:sort]) ? params[:sort] : "name"
-#  end
-#  
-#  def sort_direction
-#    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-#  end
+  
+  private
+  
+  def sort_column
+    Light.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
   
 end
