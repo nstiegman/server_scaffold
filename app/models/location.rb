@@ -28,7 +28,7 @@ class Location < ActiveRecord::Base
 
   validates :longitude, :presence => true
 
-  validates :map, :presence => true
+  #validates :map, :presence => true
 
   validates :name, :presence => true,
                    :length   => { :maximum => 30 }

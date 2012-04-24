@@ -57,6 +57,18 @@ class LightsController < ApplicationController
       format.json  { render :json => @lights }
     end
   end
+  
+  # GET /lights/newlight
+  # GET /lights/newlight.xml
+  def newlight
+    @location = Location.find(params[:location_id])
+    @light = @location.lights.new
+
+    respond_to do |format|
+      format.html # newlight.html.erb
+      format.xml  { render :xml => @light }
+    end
+  end
 
   # GET /lights/1/edit
   def edit

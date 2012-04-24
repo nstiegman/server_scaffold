@@ -70,7 +70,7 @@
     <td><%= location.name %></td>
     <td><%= location.latitude %></td>
     <td><%= location.longitude %></td>
-    <td><%= link_to location.map, indoor_location_path(location)  %></td>
+    <td><%= location.map %></td>
     <td><%= link_to 'Show', location %></td>
     <td><%= link_to 'Lights', location_lights_path(location) %></td>
     <td><%= link_to 'Edit', edit_location_path(location) %></td>
@@ -82,6 +82,8 @@
 <br />
 
 <%= link_to 'New Location', new_location_path %>
+<br>
+<%= link_to 'New Location on Map', newlocation_locations_path %>
 
 <% content_for :map do %>
 

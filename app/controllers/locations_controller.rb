@@ -42,6 +42,17 @@ class LocationsController < ApplicationController
     end
   end
   
+  # GET /locations/newlocation
+  # GET /locations/newlocation.xml
+  def newlocation
+    @location = Location.new
+
+    respond_to do |format|
+      format.html # newlocation.html.erb
+      format.xml  { render :xml => @location }
+    end
+  end
+  
   # GET /locations/new
   # GET /locations/new.xml
   def new

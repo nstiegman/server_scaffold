@@ -4,12 +4,16 @@ ServerScaffold::Application.routes.draw do
   resources :devices
   
   resources :locations do
-      match '/locations/:id/indoor', :action => 'indoor', :controller => 'locations' 
-      member do
-        get :indoor
-      end
+    collection do
+      get :newlocation
+    end
+    member do
+      get :indoor
+    end
     resources :lights do
-      match '/lights/:id/dragdrop', :action => 'dragdrop', :controller => 'lights' 
+      collection do
+        get :newlight
+      end
       member do
         get :dragdrop
       end
