@@ -3,5 +3,10 @@
 <p>
   This is the home page for the ByteLight Server application.
 </p>
-
+<% if signed_in? %>
+<p>
+  Welcome back!
+</p>
+<% else %>
 <%= link_to "Sign Up!", signup_path, :class => "signup_button round" %>
+<% end %>
