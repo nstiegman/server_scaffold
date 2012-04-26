@@ -24,9 +24,9 @@
     <td><%= light.light_id %></td>
     <td><script type="text/javascript">document.write(PXtoM(<%= light.x_position %>));</script></td>
     <td><script type="text/javascript">document.write(PXtoM(<%= light.y_position %>));</script></td>
-    <td><script type="text/javascript">document.write(PXtoM(<%= light.z_position %>));</script></td>
+    <td><%= light.z_position %></td>
     <td><%= link_to light.content , light.content%></td>
-    <td><%= link_to 'Show', [@location, light] %></td>
+    <td><%= link_to 'Details', [@location, light] %></td>
     <td><%= link_to 'Edit', dragdrop_location_light_path(@location, light) %><td>
 
     <td><%= link_to 'Destroy', [@location, light], :confirm => 'Are you sure?', :method => :delete %></td>

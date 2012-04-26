@@ -21,7 +21,7 @@
   var position = jQuery("#icon").position();
      document.getElementById("light_x_position").value = position.left;
      document.getElementById("light_y_position").value = position.top;
-     document.getElementById("icon").title = "Location: <%= @light.location_id %> </br> X position (m): "+PXtoM(position.left)+" </br> Y position (m): "+PXtoM(position.top)+" </br> ID code: <%= @light.light_id %> </br> Content: <%= @light.content %>  ";
+     document.getElementById("icon").title = "X position (m): "+PXtoM(position.left)+" </br> Y position (m): "+PXtoM(position.top)+"";
 	jQuery('#icon').speechbubble('');
      
     
@@ -39,8 +39,8 @@
         var position = jQuery("#icon").position();
      document.getElementById("light_x_position").value = position.left;
      document.getElementById("light_y_position").value = position.top;
-  	document.getElementById("icon").title = "Location: <%= @light.location_id %> </br> X position (m): "+PXtoM(position.left)+" </br> Y position (m): "+PXtoM(position.top)+" </br> ID code: <%= @light.light_id %> </br> Content: <%= @light.content %>  ";
-    	jQuery('#icon').speechbubble('');
+     document.getElementById("icon").title = "X position (m): "+PXtoM(position.left)+" </br> Y position (m): "+PXtoM(position.top)+"";
+	jQuery('#icon').speechbubble('');
         
 }; </script>
 
@@ -70,7 +70,7 @@ jQuery.noConflict();
 
 <div id = "map" style="position:relative; z-index:0;"><img src="/images/lab.bmp" onmouseover="updatelights()" alt="Senior Lab"/>
 
-<div id = "icon"   style="position:absolute; top: 100px; left: 100px; z-index:4" onmouseover="updatelights()"><img src="/images/light.png" alt="Senior Lab"/></div>
+<div id = "icon"   style="position:absolute; z-index:4"><img src="/images/light.png" alt="Senior Lab"/></div>
 
 </div>
 

@@ -46,7 +46,7 @@ jQuery.getJSON("/locations/<%= @location.id %>/lights.json", {}, function(json){
 
   jQuery.each(json, function(i, item){
   
-    jQuery('#home').append('<div id="icon'+i+'" title="Name: '+item.light.name+' </br> Location: '+item.light.location_id+' </br> X position: '+item.light.x_position+' </br> Y position: '+item.light.y_position+' </br> Z position: '+item.light.z_position+' </br> ID code: '+item.light.light_id+' </br> Content: '+item.light.content+'  " style="position:absolute; top: '+ item.light.y_position +'px; left: '+ item.light.x_position +'px; z-index: '+ item.light.z_position +'"><img src="/images/light.png"></ div>' );
+    jQuery('#home').append('<div id="icon'+i+'" title="Name: '+item.light.name+' </br> X position (m): '+PXtoM(item.light.x_position)+' </br> Y position (m): '+PXtoM(item.light.y_position)+' </br> Z position (m): '+item.light.z_position+' </br> Frequency: '+item.light.light_id+' </br> Content: '+item.light.content+'  " style="position:absolute; top: '+ item.light.y_position +'px; left: '+ item.light.x_position +'px; z-index: '+ item.light.z_position +'"><img src="/images/light.png"></ div>' );
 
     jQuery(function(jQuery){ //on document.ready
     
