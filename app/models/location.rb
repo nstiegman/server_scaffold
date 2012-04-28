@@ -14,17 +14,12 @@
 #
 
 class Location < ActiveRecord::Base
-  attr_accessible :latitude, :longitude, :map, :name, :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at, :photo_url, 
-   
-  has_attached_file :photo,
-  :storage => :s3,
-  :s3_credentials => "#{Rails.root}/config/s3.yml",
-  :path => ":attachment/:id/:style.:extension",
-  :default_url => "/images/nomap_thumb.bmp"
 
-  
-  
-  validates_attachment_content_type :photo, :content_type => [ 'image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/bmp'  ], :message => "is not an acceptable image file" 
+  attr_accessor :photo_file_name
+  attr_accessor :photo_content_type
+  attr_accessor :photo_file_size
+  attr_accessor :photo_updated_at
+  attr_accessible :latitude, :longitude, :map, :name, :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at, :photo_url
 
   has_many :lights
   has_many :devices
@@ -46,6 +41,21 @@ class Location < ActiveRecord::Base
 #  validates :email, :presence => true,
 #                    :format   => { :with => email_regex },
 #                    :uniqueness => { :case_sensitive => false }
+
+  has_attached_file :photo,
+  :storage => :s3,
+  :s3_credentials => "#{Rails.root}/config/s3.yml",
+  :styles => {
+    :thumb  => "100x100",
+    :medium => "200x200",
+    :large => "600x400"
+  },
+  :path => ":attachment/:id/:style.:extension",
+  :default_url => "/images/nomap_thumb.bmp"
+    
+  validates_attachment_content_type :photo, :content_type => [ 'image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/bmp'  ], :message => "is not an acceptable image file" 
+
+
 
   def self.search(search)
 
