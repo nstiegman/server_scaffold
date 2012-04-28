@@ -73,6 +73,7 @@ class LocationsController < ApplicationController
   # POST /locations.xml
   def create
     @location = Location.new(params[:location])
+    #@location.photo_url => @location.photo.url
     
     respond_to do |format|
       if @location.save

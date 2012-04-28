@@ -1,5 +1,171 @@
-<h1>New location</h1>
+<% content_for :head do %>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100% }
 
-<%= render 'form' %>
+#contextMenu {
+	position: absolute;
+	min-width: 100px;
+	z-index: 1000;
+	background: #fff;
+	border-top: solid 1px #CCC;
+	border-left: solid 1px #CCC;
+	border-bottom: solid 1px #676767;
+	border-right: solid 1px #676767;
+	padding: 0px;
+	margin: 0px;
+	display:none;
+}
+
+#contextMenu a {
+	color: #000;
+	text-decoration: none;
+	display: block;
+	line-height: 22px;
+	height: 22px;
+	padding: 1px 10px;
+}
+
+#contextMenu li {
+	list-style: none;
+	padding: 1px;
+	margin: 0px;
+}
+
+#contextMenu li.hover a {
+	background-color: #A7C4FA;
+}
+
+#contextMenu li.separator {
+	border-top: solid 1px #ccc;
+}
+
+    </style>
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDNsmG-CODbm8HLec1SOZBwGCb9HpRmExU&sensor=false">
+    </script>
+    
+
+    
+    <script type="text/javascript">
+       var arrMarkers = [];
+       var arrInfoWindows = [];
+      function initialize() {
+        var myOptions = {
+          center: new google.maps.LatLng(42.350112,-71.106171),
+          zoom: 17,
+          mapTypeId: google.maps.MapTypeId.ROADMAP };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+
+        
+      
+      jQuery.noConflict();
+
+    var contextMenu = jQuery(document.createElement('ul'))
+	.attr('id', 'contextMenu');      
+
+   contextMenu.append(
+	'<li><a href="#createlocation">Create a New Location</a></li>' 
+);
+  
+jQuery(map.getDiv()).append(contextMenu);
+
+// Keep track of where you clicked
+var clickedLatLng;
+var locationlong;
+var locationlat; 
+
+// Display and position the menu
+google.maps.event.addListener(map, 'rightclick', function(e)
+{
+	// start buy hiding the context menu if its open
+	contextMenu.hide();
+        locationlong = e.latLng.lng();
+        locationlat = e.latLng.lat(); 
+	var mapDiv = jQuery(map.getDiv()),
+		x = e.pixel.x,
+		y = e.pixel.y;
+
+	// save the clicked location
+	clickedLatLng = e.latLng;
+
+	// adjust if clicked to close to the edge of the map
+	if ( x > mapDiv.width() - contextMenu.width() )
+		x -= contextMenu.width();
+
+	if ( y > mapDiv.height() - contextMenu.height() )
+		y -= contextMenu.height();
+
+	// Set the location and fade in the context menu
+	contextMenu.css({ top: y, left: x }).fadeIn(100);
+});
+
+// Set some events on the context menu links
+contextMenu.find('a').click( function()
+{
+	// fade out the menu
+	contextMenu.fadeOut(75);
+
+	// The link's href minus the #
+	var action = jQuery(this).attr('href').substr(1);
+
+	switch ( action )
+	{
+		case 'createlocation':
+                        map.panTo(clickedLatLng);
+			
+                        
+                        document.getElementById("location_latitude").value = locationlat;
+                        document.getElementById("location_longitude").value = locationlong;
+			
+			
+			break;
+	}
+
+	return false;
+});
+
+// Hover events for effect
+contextMenu.find('a').hover( function() {
+	jQuery(this).parent().addClass('hover');
+}, function() {
+	jQuery(this).parent().removeClass('hover');
+});
+
+// Hide context menu on some events
+jQuery.each('click dragstart zoom_changed maptypeid_changed'.split(' '), function(i,name){
+	google.maps.event.addListener(map, name, function(){ contextMenu.hide() });
+});
+
+    jQuery.getJSON("/locations.json", {}, function(json){
+
+ jQuery.each(json, function(i,item){jQuery("#markers").append('<li><a href="#" rel="' + i + '">' + item.location.name + '</a></li>');
+
+
+
+              var marker = new google.maps.Marker({position: new google.maps.LatLng(item.location.latitude,item.location.longitude),map: map,title: item.location.name});
+
+                arrMarkers[i] = marker;
+
+});
+});
+
+
+}
+
+    </script>
+
+<% end %>
+  
+  <%= render 'newlocationform' %>
 
 <%= link_to 'Back', locations_path %>
+
+
+<br/>
+  
+<div id="map_canvas" style="width:670px; height:400px"></div>
+
+

@@ -1,4 +1,4 @@
-<%= form_for(@location) do |f| %>
+<%= form_for @location, :html => {:multipart => true} do |f| %>
   <% if @location.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
@@ -16,13 +16,16 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :map %><br />
-    <%= f.text_field :map %>
+  <%= f.label :"Upload map" %><br/ >
+  Acceptable image type: JPG, JPEG, GIF, BMP, PNG<br>
+  <%= f.file_field :photo %>
   </div>
   <div class="field">
-    <%= f.hidden_field :latitude %>
+    <%= f.label :"Coordinates" %>   <br>Right click on map to get coordinates.<br />
+    Lat: <%= f.text_field :latitude,:readonly => true %> Long: <%= f.text_field :longitude,:readonly => true %>
   </div>
-  <div class="field">
-    <%= f.hidden_field :longitude %>
+
+  <div class="actions">
+    <%= f.submit %>
   </div>
 <% end %>

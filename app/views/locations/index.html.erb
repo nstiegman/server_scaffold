@@ -70,7 +70,7 @@
     <td><%= location.name %></td>
     <td><script type="text/javascript">document.write(<%= location.latitude%>.toFixed(5));</script></td>
     <td><script type="text/javascript">document.write(<%= location.longitude%>.toFixed(5));</script></td>
-    <td><%= location.map %></td>
+    <td><%= image_tag location.photo(:thumb) %></td>
     <td><%= link_to 'Details', location %></td>
     <td><%= link_to 'Lights', location_lights_path(location) %></td>
     <td><%= link_to 'Delete', location, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -78,9 +78,6 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Location', new_location_path %>
 <br>
 <%= link_to 'New Location on Map', newlocation_locations_path %>
 

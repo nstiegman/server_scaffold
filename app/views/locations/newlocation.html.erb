@@ -115,16 +115,11 @@ contextMenu.find('a').click( function()
 	{
 		case 'createlocation':
                         map.panTo(clickedLatLng);
-			var nameprompt = prompt('Enter the name of the location','');
-                        document.getElementById("location_name").value = nameprompt;
+			
+                        
                         document.getElementById("location_latitude").value = locationlat;
                         document.getElementById("location_longitude").value = locationlong;
 			
-			jQuery(function() {
-  
-    jQuery('#new_location').submit();
-
-});
 			
 			break;
 	}

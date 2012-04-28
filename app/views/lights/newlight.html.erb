@@ -31,8 +31,8 @@
         var  mapheight = jQuery("#map").height();
         var  mapwidth  = jQuery("#map").width();
 
-         document.getElementById("icon").style.top = mapheight/2 +"px";
-         document.getElementById("icon").style.left = mapwidth/2 +"px";
+         document.getElementById("icon").style.top = 100 +"px";
+         document.getElementById("icon").style.left = 100 +"px";
          
          
   // Alert the position with jQuery
@@ -67,9 +67,12 @@ jQuery.noConflict();
 </script>
 <% end %>
 
+  <div class="field">
+    <b>Drag and drop light to desired position.</b><br />
 
-<div id = "map" style="position:relative; z-index:0;"><img src="/images/lab.bmp" onmouseover="updatelights()" alt="Senior Lab"/>
-
+  </div>
+<div id = "map" style="position:relative; z-index:0;">
+<img src="<%= @location.photo.url %>" onmouseover="updatelights()" alt="Indoor Map"/>
 <div id = "icon"   style="position:absolute; z-index:4"><img src="/images/light.png" alt="Senior Lab"/></div>
 
 </div>

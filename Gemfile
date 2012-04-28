@@ -8,6 +8,12 @@ gem 'autotest-notification'
 
 gem 'gravatar_image_tag', '1.0.0.pre2'
 
+gem 'paperclip'
+
+gem 'aws-s3'
+
+gem 'aws-sdk'
+
 group :development do
   gem 'rspec-rails', '2.6.1'
   gem 'annotate', '2.4.0'
