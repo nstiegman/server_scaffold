@@ -53,6 +53,13 @@ class Location < ActiveRecord::Base
   :path => ":attachment/:id/:style.:extension",
   :default_url => "/images/logo100.jpg",
   :bucket => 'bu-ece'
+  :url => ':s3_domain_url',
+  :s3_permissions => 'public-read',
+  :s3_protocol => 'http'
+
+
+
+
 
     
   validates_attachment_content_type :photo, :content_type => [ 'image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/bmp'  ], :message => "is not an acceptable image file" 
