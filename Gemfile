@@ -8,7 +8,7 @@ gem 'autotest-notification'
 
 gem 'gravatar_image_tag', '1.0.0.pre2'
 
-gem 'paperclip', "~> 3.0"
+gem "paperclip", "~> 3.0"
 
 gem 'aws-s3'
 
