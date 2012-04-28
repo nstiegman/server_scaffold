@@ -16,25 +16,12 @@
 class Location < ActiveRecord::Base
   attr_accessible :latitude, :longitude, :map, :name, :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at, :photo_url, 
    
-#  has_attached_file :photo,
-#  :storage => :s3,
-#  :s3_credentials => "#{Rails.root}/config/s3.yml",
-#  :styles => {
-#
-#  },
-#  :path => ":attachment/:id/:style.:extension",
-#  :default_url => "/images/nomap_thumb.bmp"
-  
   has_attached_file :photo,
-                :storage => :s3,
-                :s3_credentials => "#{Rails.root}/config/s3.yml",
-                :styles => {
-                    {:large => "600x480"},
-                    {:medium => "330x230"},
-                    {:small => "210x150"},
-                    {:thumb => "90x90"}
-                },
-                :path => 'images/products/:style/:filename'
+  :storage => :s3,
+  :s3_credentials => "#{Rails.root}/config/s3.yml",
+  :path => ":attachment/:id/:style.:extension",
+  :default_url => "/images/nomap_thumb.bmp"
+
   
   
   validates_attachment_content_type :photo, :content_type => [ 'image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/bmp'  ], :message => "is not an acceptable image file" 
