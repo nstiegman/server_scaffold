@@ -49,9 +49,11 @@ class Location < ActiveRecord::Base
     :large => "600x400"
   },
   :storage => :s3,
-  :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+  :s3_credentials => Rails.root.join("config/s3.yml"),
   :path => ":attachment/:id/:style.:extension",
-  :default_url => "/images/nomap_thumb.bmp"
+  :default_url => "/images/nomap_thumb.bmp",
+  :bucket => 'bu-ece'
+
     
   validates_attachment_content_type :photo, :content_type => [ 'image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/bmp'  ], :message => "is not an acceptable image file" 
 
