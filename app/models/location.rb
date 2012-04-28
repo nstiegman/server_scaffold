@@ -14,8 +14,7 @@
 #
 
 class Location < ActiveRecord::Base
-  attr_accessible :latitude, :longitude, :map, :name
-  attr_accessible :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at, :photo_url
+  attr_accessible :latitude, :longitude, :map, :name, :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at, :photo_url, 
    
   has_attached_file :photo,
     :styles => {
