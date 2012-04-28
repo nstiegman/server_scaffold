@@ -51,7 +51,7 @@ class Location < ActiveRecord::Base
   :storage => :s3,
   :s3_credentials => Rails.root.join("config/s3.yml"),
   :path => ":attachment/:id/:style.:extension",
-  :default_url => "/images/nomap_thumb.bmp",
+  :default_url => "/images/logo100.jpg",
   :bucket => 'bu-ece'
 
     
