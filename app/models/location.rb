@@ -29,10 +29,10 @@ class Location < ActiveRecord::Base
                 :storage => :s3,
                 :s3_credentials => "#{Rails.root}/config/s3.yml",
                 :styles => {
-                    :large => "600x480",
-                    :medium => "330x230",
-                    :small => "210x150",
-                    :thumb => "90x90"
+                    {:large => "600x480"},
+                    {:medium => "330x230"},
+                    {:small => "210x150"},
+                    {:thumb => "90x90"}
                 },
                 :path => 'images/products/:style/:filename'
   
