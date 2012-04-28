@@ -52,7 +52,7 @@ class Location < ActiveRecord::Base
   :s3_credentials => Rails.root.join("config/s3.yml"),
   :path => ":attachment/:id/:style.:extension",
   :default_url => "/images/logo100.jpg",
-  :bucket => 'bu-ece'
+  :bucket => 'bu-ece',
   :url => ':s3_domain_url',
   :s3_permissions => 'public-read',
   :s3_protocol => 'http'
