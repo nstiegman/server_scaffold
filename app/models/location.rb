@@ -20,13 +20,12 @@ class Location < ActiveRecord::Base
     :styles => {
     :thumb  => "100x100",
     :medium => "200x200",
-    :large => "600x400"
-  },
+    :large => "600x400"},
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
   :path => ":attachment/:id/:style.:extension",
-  :bucket => 'ece-bu',
-  :default_url => "/images/nomap_thumb.bmp"
+  :bucket => 'ece-bu'
+  #:default_url => "/images/nomap_thumb.bmp"
   
   
   validates_attachment_content_type :photo, :content_type => [ 'image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/bmp'  ], :message => "is not an acceptable image file" 
