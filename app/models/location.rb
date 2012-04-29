@@ -44,12 +44,9 @@ class Location < ActiveRecord::Base
 
   has_attached_file :photo,
   :storage => :s3,
-  :s3_credentials => {
-    :access_key_id => ENV['S3_KEY'],
-    :secret_access_key => ENV['S3_SECRET']
-  },
+  :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
   :path => ":attachment/:id/:style.:extension",
-  :bucket => ENV['S3_BUCKET'],
+  :bucket => 'bu-ece',
   :url => ':s3_domain_url',
   :s3_permissions => 'public-read',
   :s3_protocol => 'http',
@@ -78,11 +75,10 @@ class Location < ActiveRecord::Base
     end
   end
   
-  after_create :update_photo_url
+  before_save :update_photo_url
   
   def update_photo_url
     self.photo_url = self.photo.url
-    self.save!
   end 
   
 end
