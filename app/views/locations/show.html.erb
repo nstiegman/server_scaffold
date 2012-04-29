@@ -17,7 +17,7 @@
 
 <p>
   <b>Map:</b>
-  <%= image_tag @location.photo(:medium) %>
+  <img src="<%= @location.photo_url %>">
 </p>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |

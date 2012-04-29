@@ -43,19 +43,22 @@ class Location < ActiveRecord::Base
 #                    :uniqueness => { :case_sensitive => false }
 
   has_attached_file :photo,
+  :storage => :s3,
+  :s3_credentials => {
+    :access_key_id => ENV['S3_KEY'],
+    :secret_access_key => ENV['S3_SECRET']
+  },
+  :path => ":attachment/:id/:style.:extension",
+  :bucket => ENV['S3_BUCKET'],
+  :url => ':s3_domain_url',
+  :s3_permissions => 'public-read',
+  :s3_protocol => 'http',
   :styles => {
     :thumb  => "100x100",
     :medium => "200x200",
     :large => "600x400"
   },
-  :storage => :s3,
-  :s3_credentials => Rails.root.join("config/s3.yml"),
-  :path => ":attachment/:id/:style.:extension",
-  :default_url => "/images/logo100.jpg",
-  :bucket => 'bu-ece',
-  :url => ':s3_domain_url',
-  :s3_permissions => 'public-read',
-  :s3_protocol => 'http'
+  :default_url => "/images/nomap.bmp"
 
 
 
