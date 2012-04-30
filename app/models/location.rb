@@ -15,10 +15,6 @@
 
 class Location < ActiveRecord::Base
 
-  attr_accessor :photo_file_name
-  attr_accessor :photo_content_type
-  attr_accessor :photo_file_size
-  attr_accessor :photo_updated_at
   attr_accessible :latitude, :longitude, :map, :name, :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at, :photo_url
 
   has_many :lights
@@ -62,7 +58,7 @@ class Location < ActiveRecord::Base
 
 
     
-  validates_attachment_content_type :photo, :content_type => [ 'image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/bmp'  ], :message => "is not an acceptable image file" 
+  #validates_attachment_content_type :photo, :content_type => [ 'image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/bmp'  ], :message => "is not an acceptable image file" 
 
 
 
@@ -75,7 +71,7 @@ class Location < ActiveRecord::Base
     end
   end
   
-  before_save :update_photo_url
+  #after_create :update_photo_url
   
   def update_photo_url
     self.photo_url = self.photo.url
