@@ -58,7 +58,7 @@ class Location < ActiveRecord::Base
 
 
     
-  #validates_attachment_content_type :photo, :content_type => [ 'image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/bmp'  ], :message => "is not an acceptable image file" 
+  validates_attachment_content_type :photo, :content_type => [ 'image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/bmp'  ], :message => "is not an acceptable image file" 
 
 
 
