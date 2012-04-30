@@ -4,7 +4,7 @@
 #
 #  id          :integer         not null, primary key
 #  light_id    :integer
-#  device_id   :integer
+#  device_id   :string(255)
 #  location_id :integer
 #  time        :datetime
 #  created_at  :datetime
@@ -24,3 +24,5 @@ class History < ActiveRecord::Base
 #  validates :time, :presence => true
 
 end
+
+

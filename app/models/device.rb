@@ -23,3 +23,4 @@ class Device < ActiveRecord::Base
 #  validates :location, :presence => true
 
 end
+

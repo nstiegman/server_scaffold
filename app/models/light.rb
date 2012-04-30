@@ -37,3 +37,4 @@ class Light < ActiveRecord::Base
                    :length   => { :maximum => 50 }
 
 end
+

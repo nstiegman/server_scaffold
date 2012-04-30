@@ -87,6 +87,17 @@ class HistoriesController < ApplicationController
     end
   end
   
+  # DELETE /histories/1
+  # DELETE /histories/1.xml
+  def destroy_all
+    History.destroy_all
+
+    respond_to do |format|
+      format.html { redirect_to(histories_url) }
+      format.xml  { head :ok }
+    end
+  end
+  
   private
   
   def sort_column
