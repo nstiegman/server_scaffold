@@ -59,7 +59,7 @@ class Location < ActiveRecord::Base
   :default_url => "/images/nomap.bmp"
 
 
-
+  after_create :update_photo_url
 
 
     
@@ -76,10 +76,11 @@ class Location < ActiveRecord::Base
     end
   end
   
-  #after_create :update_photo_url
+  
   
   def update_photo_url
-    self.photo_url = self.photo.url
+    self.photo_url = self.photo.url(:original)
+    self.save!
   end 
   
 end
