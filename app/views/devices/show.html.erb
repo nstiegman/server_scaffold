@@ -7,7 +7,7 @@
 
 <p>
   <b>Location:</b>
-  <%= @device.location_id %>
+  <% @location = Location.find(device.location_id) %><%= @location.name %>
 </p>
 
 <p>
@@ -16,5 +16,4 @@
 </p>
 
 
-<%= link_to 'Edit', edit_device_path(@device) %> |
 <%= link_to 'Back', devices_path %>

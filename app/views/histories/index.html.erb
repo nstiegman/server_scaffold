@@ -12,7 +12,7 @@
 
 <% @histories.each do |history| %>
   <tr>
-    <td><%= history.location_id %></td>    
+    <td><% @location = Location.find(history.location_id) %><%= @location.name %></td>    
     <td><%= history.light_id %></td>
     <td><%= history.device_id %></td>
     <td><%= history.created_at %></td>

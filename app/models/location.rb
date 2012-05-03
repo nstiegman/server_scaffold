@@ -57,11 +57,6 @@ class Location < ActiveRecord::Base
     :large => "600x400"
   },
   :default_url => "/images/nomap.bmp"
-
-
-  after_create :update_photo_url
-
-
     
   validates_attachment_content_type :photo, :content_type => [ 'image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/bmp'  ], :message => "is not an acceptable image file" 
 
@@ -75,13 +70,6 @@ class Location < ActiveRecord::Base
       find(:all)
     end
   end
-  
-  
-  
-  def update_photo_url
-    self.photo_url = self.photo.url(:original)
-    self.save!
-  end 
   
 end
 

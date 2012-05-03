@@ -73,10 +73,10 @@ class LocationsController < ApplicationController
   # POST /locations.xml
   def create
     @location = Location.new(params[:location])
-    #@location.photo_url => @location.photo.url
     
     respond_to do |format|
       if @location.save
+        @location.update_attribute(:photo_url, @location.photo.url)
         format.html { redirect_to(@location, :notice => 'Location was successfully created.') }
         format.xml  { render :xml => @location, :status => :created, :location => @location }
       else
@@ -90,9 +90,9 @@ class LocationsController < ApplicationController
   # PUT /locations/1.xml
   def update
     @location = Location.find(params[:id])
-
     respond_to do |format|
       if @location.update_attributes(params[:location])
+        @location.update_attribute(:photo_url, @location.photo.url)
         format.html { redirect_to(@location, :notice => 'Location was successfully updated.') }
         format.xml  { head :ok }
       else

@@ -4,16 +4,18 @@
   <tr>
     <th><%= sortable "device_id" %></th>
     <th><%= sortable "location_id" %></th>
-    <th><%= sortable "light_id", "Frequency" %></th>
-    <th></th>
+    <th><%= sortable "light_id" %></th>
     <th></th>
     <th></th>
   </tr>
 
+
+
 <% @devices.each do |device| %>
+  
   <tr>
     <td><%= device.device_id %></td>
-    <td><%= device.location_id %></td>
+    <td><% @location = Location.find(device.location_id) %><%= @location.name %></td>
     <td><%= device.light_id %></td>
     <td><%= link_to 'Show', device %></td>
     <td><%= link_to 'Destroy', device, :confirm => 'Are you sure?', :method => :delete %></td>
