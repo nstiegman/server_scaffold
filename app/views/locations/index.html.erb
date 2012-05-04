@@ -61,7 +61,7 @@
     <th>Map</th>
     <th></th>
     <th></th>
-    <th></th>
+    <!--<th></th>-->
   </tr>
 
 <% @locations.each do |location| %>
@@ -72,7 +72,7 @@
     <td><img src="<%= location.photo.url(:thumb) %>" height=100px></td>
     <td><%= link_to 'Details', location %></td>
     <td><%= link_to 'Lights', location_lights_path(location) %></td>
-    <td><%= link_to 'Delete', location, :confirm => 'Are you sure?', :method => :delete %></td>
+    <!--<td><%= link_to 'Delete', location, :confirm => 'Are you sure?', :method => :delete %></td>-->
   </tr>
 <% end %>
 </table>
